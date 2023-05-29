@@ -1,4 +1,4 @@
-package homework.task1;
+package anotherBranch.homework.task1;
 
 import static java.lang.System.out;
 

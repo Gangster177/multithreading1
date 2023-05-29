@@ -1,4 +1,4 @@
-package homework.task2;
+package anotherBranch.homework.task2;
 
 import java.util.concurrent.Callable;
 

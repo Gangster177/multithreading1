@@ -1,4 +1,4 @@
-package homework.task1;
+package anotherBranch.homework.task1;
 
 public class MyThread extends Thread {
 
