@@ -9,7 +9,6 @@ public class RangeOfValues {
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("aab", 30_000);
         }
-
         long startTs = System.currentTimeMillis(); // start time
         List<Callable<Integer>> threads = new ArrayList<>();
         for (String text : texts) {
