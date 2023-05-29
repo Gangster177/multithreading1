@@ -15,9 +15,7 @@ public class RangeOfValues {
         for (String text : texts) {
             threads.add(new Callable<Integer>() {
                 @Override
-                public Integer call() throws Exception {
-
-
+                public Integer call() {
                     int maxSize = 0;
                     for (int i = 0; i < text.length(); i++) {
                         for (int j = 0; j < text.length(); j++) {
@@ -36,7 +34,6 @@ public class RangeOfValues {
                             }
                         }
                     }
-                    //System.out.println(text.substring(0, 100) + " -> " + maxSize);
                     return maxSize;
                 }
             });
@@ -45,8 +42,6 @@ public class RangeOfValues {
         List<Future<Integer>> futureTask = threadPool.invokeAll(threads);
         List<Integer> result = new ArrayList<>();
         for (var ft : futureTask) {
-            //int resultOfTask = ft.get();
-            //System.out.printf("Result of thread => %d \n", resultOfTask);
             result.add(ft.get());
         }
         System.out.println("Max result: " + Collections.max(result));
