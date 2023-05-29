@@ -2,21 +2,24 @@ package homework.task2;
 
 import java.util.concurrent.Callable;
 
-public class MyThread implements Callable {
+public class MyThread implements Callable<Integer> {
     private Integer result = 0;
+    public String name;
+    private final int CYCLE;
+
+    public MyThread(int CYCLE,String name){
+        this.CYCLE = CYCLE;
+        this.name = name;
+    }
 
     @Override
-    public Object call() throws Exception {
-        try {
-            while (true) {
-                Thread.sleep(2500);
-                System.out.printf("%s Hello! \n", Thread.currentThread().getName());
-                result++;
-            }
-        } catch (InterruptedException e) {
-        } finally {
-            System.out.printf("%s stopped \n", Thread.currentThread().getName());
+    public Integer call() throws Exception {
+        for (int x = 0; x < CYCLE; x++) {
+            Thread.sleep(2000);
+            System.out.printf("%s Hello! \n", name);
+            result++;
         }
-        return this.result;
+        return result;
     }
 }
+
