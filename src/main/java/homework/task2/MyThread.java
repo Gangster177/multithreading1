@@ -4,10 +4,10 @@ import java.util.concurrent.Callable;
 
 public class MyThread implements Callable<Integer> {
     private Integer result = 0;
-    public String name;
+    private String name;
     private final int CYCLE;
 
-    public MyThread(int CYCLE,String name){
+    public MyThread(int CYCLE, String name) {
         this.CYCLE = CYCLE;
         this.name = name;
     }
