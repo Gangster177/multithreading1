@@ -11,9 +11,8 @@ public class RangeOfValues {
             texts[i] = generateText("aab", 30_000);
         }
 
-        List<Thread> threads = new ArrayList<>();
         long startTs = System.currentTimeMillis(); // start time
-
+        List<Thread> threads = new ArrayList<>();
         for (String text : texts) {
             Runnable run = () -> {
                 int maxSize = 0;
@@ -39,10 +38,10 @@ public class RangeOfValues {
             new Thread(run).start();
             threads.add(new Thread());
         }
+
         for (Thread thread : threads) {
             thread.join(); // зависаем, ждём когда поток, объект которого лежит в thread, завершится
         }
-
 
         long endTs = System.currentTimeMillis(); // end time
         System.out.println("Time: " + (endTs - startTs) + "ms");
