@@ -36,13 +36,14 @@ public class RangeOfValues {
                 }
                 System.out.println(text.substring(0, 100) + " -> " + maxSize);
             };
-            new Thread(run).start();
-            threads.add(new Thread());
+            threads.add(new Thread(run));
+        }
+        for (Thread thread : threads) {
+            thread.start();
         }
         for (Thread thread : threads) {
             thread.join(); // зависаем, ждём когда поток, объект которого лежит в thread, завершится
         }
-
 
         long endTs = System.currentTimeMillis(); // end time
         System.out.println("Time: " + (endTs - startTs) + "ms");
